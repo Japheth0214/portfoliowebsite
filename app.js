@@ -40,7 +40,7 @@
         } else if (messageInput.length < 50 || !emailRegex.test(emailInput)) {
             let errorMessage = "⚠️ ";
             if (messageInput.length < 10) {
-                errorMessage += "Message should have at least 50 characters! ";
+                errorMessage += "Message should have at least 10 characters! ";
             }
             if (!emailRegex.test(emailInput)) {
                 errorMessage += "Email address is not valid!";

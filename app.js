@@ -14,20 +14,24 @@
         document.body.classList.toggle("light-mode");
     });
 
+    // Initialize EmailJS with the user ID
+    emailjs.init(window.emailConfig.userID);
+
     // Function to handle form submission
-    document.querySelector("#submitForm").addEventListener("click", async function (event) {
+    document.querySelector("#submitForm").addEventListener("click", function (event) {
         event.preventDefault();
 
         const emailInput = document.getElementById("emailInput").value;
         const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
         const nameInput = document.getElementById("nameInput").value;
         const subjectInput = document.getElementById("subjectInput").value;
         const messageInput = document.getElementById("messageInput").value;
 
         if (!nameInput || !subjectInput || !messageInput || !emailInput) {
-            alert("Please fill out all the information below before clicking submit form!");
+                alert("⚠️ Unable to submit the form. Please complete all required fields.");
         } else if (messageInput.length < 50 || !emailRegex.test(emailInput)) {
-            let errorMessage = "";
+            let errorMessage = "⚠️ ";
             if (messageInput.length < 50) {
                 errorMessage += "Message should have at least 50 characters! ";
             }
@@ -36,34 +40,21 @@
             }
             alert(errorMessage);
         } else {
-            const formData = {
+            emailjs.send(window.emailConfig.serviceID, window.emailConfig.templateID, {
                 name: nameInput,
                 email: emailInput,
                 subject: subjectInput,
                 message: messageInput,
-            };
-
-            try {
-                const response = await fetch('https://japheth-website-portfolio.onrender.com/sendEmail', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(formData),
-                });
-
-                const data = await response.json();
-
-                if (data.success) {
-                    alert("Thank you for your interest and reviewing my application \nForm submitted successfully!");
-                    document.getElementById("contactForm").reset();
-                } else {
-                    alert("Error sending the email. Please try again later.");
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert("An unexpected error occurred. Please try again later.");
-            }
+            })
+            .then(function (response) {
+                console.log("Email sent successfully:", response);
+                alert("✅ Form submitted successfully! Thanks for your interest. I'll get back to you as soon as possible.");
+                document.querySelector(".contact-form").reset();
+            })
+            .catch(function (error) {
+                console.log("Email failed to send:", error);
+                alert("❌ Error sending the email. Please try again later.");
+            });
         }
     });
 

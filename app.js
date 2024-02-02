@@ -44,7 +44,7 @@
             };
 
             try {
-                const response = await fetch('/.netlify/functions/sendEmail', {
+                const response = await fetch('https://japheth-website-portfolio.onrender.com/sendEmail', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

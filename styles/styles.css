@@ -408,6 +408,26 @@ section {
     /* Make it circular */
 }
 
+  /* Add this style to create space between the notifications and the button */
+  .notification {
+      margin-bottom: 30px;
+      /* Adjust the value as needed */
+      padding: 10px;
+      border-radius: 5px;
+      display: none;
+  }
+
+  /* Additional styles for better presentation */
+  #successNotification {
+      background-color: #d4edda;
+      color: #155724;
+  }
+
+  #errorNotification {
+      background-color: #f8d7da;
+      color: #721c24;
+  }
+
 .timeline .timeline-item .tl-icon {
     position: absolute;
     left: -27px;

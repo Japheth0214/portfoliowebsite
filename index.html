@@ -707,9 +707,17 @@
                             <input type="text" id="subjectInput" required placeholder="ENTER SUBJECT">
                         </div>
                         <div class="input-control">
-                            <textarea id="messageInput" name="" id="" cols="15" rows="8"
-                                placeholder="Message Here..."></textarea>
+                            <textarea id="messageInput" name="" id="" cols="15" rows="8" placeholder="Message Here..."></textarea>
                         </div>
+                    
+                        <!-- Add this HTML for the custom notifications -->
+                        <div id="successNotification" class="notification">
+                            <p>✅ Form submitted successfully! Thanks for your interest. I'll get back to you as soon as possible.</p>
+                        </div>
+                        <div id="errorNotification" class="notification">
+                            <p>⚠️ Unable to submit the form. Please complete all required fields.</p>
+                        </div>
+                    
                         <div class="submit-btn">
                             <!-- Changed href="#" to id="submitForm" for easier identification in JavaScript -->
                             <a href="#" id="submitForm" class="main-btn">

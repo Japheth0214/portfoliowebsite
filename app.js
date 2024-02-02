@@ -39,7 +39,7 @@
             // Keep the text as "Sending" until the user resolves the error
         } else if (messageInput.length < 50 || !emailRegex.test(emailInput)) {
             let errorMessage = "⚠️ ";
-            if (messageInput.length < 50) {
+            if (messageInput.length < 10) {
                 errorMessage += "Message should have at least 50 characters! ";
             }
             if (!emailRegex.test(emailInput)) {

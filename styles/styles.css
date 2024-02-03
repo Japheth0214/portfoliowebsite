@@ -212,8 +212,14 @@ section {
 .header-content .right-header .name {
     font-size: 3rem;
 }
+.header-content .right-header .name2 {
+    font-size: 2rem;
+}
 
 .header-content .right-header .name span {
+    color: var(--color-secondary);
+}
+.header-content .right-header .name2 span {
     color: var(--color-secondary);
 }
 

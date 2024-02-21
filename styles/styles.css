@@ -88,7 +88,6 @@ section {
         transform: translateY(0) scaleY(1);
     }
 }
-
 .controls {
     position: fixed;
     z-index: 10;
@@ -102,6 +101,7 @@ section {
 }
 
 .controls .control {
+    position: relative;
     padding: 1rem;
     cursor: pointer;
     background-color: var(--color-grey-4);
@@ -121,6 +121,29 @@ section {
     pointer-events: none;
 }
 
+.controls .tooltip {
+    position: absolute;
+    visibility: hidden;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 3px;
+    /* Adjust the padding for a smaller tooltip */
+    border-radius: 5px;
+    top: 50%;
+    right: 110%;
+    /* Position on the left side of the button */
+    transform: translateY(-50%);
+    white-space: nowrap;
+    z-index: 1;
+    font-size: 0.8rem;
+    /* Adjust the font size for a smaller tooltip */
+}
+
+.controls .control:hover .tooltip {
+    visibility: visible;
+}
+
 .controls .active-btn {
     background-color: var(--color-secondary);
     transition: all 0.4s ease-in-out;
@@ -128,6 +151,16 @@ section {
 
 .controls .active-btn i {
     color: var(--color-white);
+}
+
+/* Media query for mobile devices */
+@media only screen and (max-width: 767px) {
+    .controls .tooltip {
+       display:none
+    }
+    .theme-btn .tooltip {
+       display: none;
+    }
 }
 
 .theme-btn {
@@ -154,6 +187,25 @@ section {
     font-size: 1.4rem;
     color: var(--color-grey-2);
     pointer-events: none;
+}
+.theme-btn .tooltip {
+    position: absolute;
+    visibility: hidden;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 3px;
+    border-radius: 5px;
+    top: 50%;
+    right: 110%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    z-index: 1;
+    font-size: 0.8rem;
+}
+
+.theme-btn:hover .tooltip {
+    visibility: visible;
 }
 
 /*Header-content*/
@@ -871,6 +923,7 @@ section {
     .controls .control {
         margin: 1rem 0.3rem;
     }
+    
 
     .about-container {
         grid-template-columns: repeat(1, 1fr);

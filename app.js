@@ -1,4 +1,25 @@
 (function () {
+
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const themeTooltip = document.getElementById('themeTooltip');
+    let isDarkMode = true; // Set to true if dark mode is the default, false if light mode is default
+
+    themeToggle.addEventListener('click', () => {
+        isDarkMode = !isDarkMode;
+
+        if (isDarkMode) {
+            document.body.classList.add('dark-mode');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+            themeTooltip.textContent = 'Switch to light mode';
+        } else {
+            document.body.classList.remove('dark-mode');
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+            themeTooltip.textContent = 'Switch to dark mode';
+        }
+    });
     // Function to handle switching between contact information and form
     [...document.querySelectorAll(".control")].forEach((button) => {
         button.addEventListener("click", function () {

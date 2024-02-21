@@ -774,29 +774,38 @@
 
     </main>
 
-    <div class="controls">
-        <div class="control active-btn" data-id="home">
-            <i class="fas fa-home"></i>
-        </div>
-        <div class="control" data-id="about">
-            <i class="fas fa-user"></i>
-        </div>
-        <div class="control" data-id="certificates">
-            <i class="fas fa-certificate"></i>
-        </div>
-        <div class="control" data-id="portfolio">
-            <i class="fas fa-briefcase"></i>
-        </div>
-
-        <div class="control" data-id="blogs">
-            <i class="far fa-newspaper"></i>
-        </div>
-        <div class="control" data-id="contact">
-            <i class="fas fa-envelope-open"></i>
-        </div>
+<div class="controls">
+    <div class="control active-btn" data-id="home">
+        <i class="fas fa-home"></i>
+        <div class="tooltip">Home</div>
     </div>
-    <div class="theme-btn">
-        <i class="fas fa-adjust"></i>
+    <div class="control" data-id="about">
+        <i class="fas fa-user"></i>
+        <div class="tooltip">About </div>
+    </div>
+    <div class="control" data-id="certificates">
+        <i class="fas fa-certificate"></i>
+        <div class="tooltip">Certificates</div>
+    </div>
+    <div class="control" data-id="portfolio">
+        <i class="fas fa-briefcase"></i>
+        <div class="tooltip">Projects </div>
+    </div>
+    <div class="control" data-id="blogs">
+        <i class="far fa-newspaper"></i>
+        <div class="tooltip">Courses</div>
+    </div>
+    <div class="control" data-id="contact">
+        <i class="fas fa-envelope-open"></i>
+        <div class="tooltip">Contact</div>
+    </div>
+</div>
+<div class="theme-btn" id="themeToggle">
+    <i class="fas fa-sun" id="themeIcon"></i>
+    <div class="tooltip" id="themeTooltip">Switch to light mode</div>
+</div>
+
+
     </div>
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script src="config.js"></script>

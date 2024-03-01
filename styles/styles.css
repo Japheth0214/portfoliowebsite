@@ -114,6 +114,62 @@ section {
 .tooltip:hover::after {
     opacity: 1;
 }
+
+.tooltip2 {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip2::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    background-color: #333;
+    color: #fff;
+    padding: 3px;
+    border-radius: 3px;
+    font-size: 12px;
+    left:50%;
+    top: 120%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    z-index: 1;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.tooltip2:hover::after {
+    opacity: 1;
+}
+
+
+.tooltip3 {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip3::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    background-color: #333;
+    color: #fff;
+    padding: 3px;
+    border-radius: 3px;
+    font-size: 12px;
+    left: 200%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    z-index: 1;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.tooltip3:hover::after {
+    opacity: 1;
+}
+
+
 .controls {
     position: fixed;
     z-index: 10;
@@ -187,10 +243,17 @@ section {
     .theme-btn .tooltip {
        display: none;
     }
-        .tooltip::after {
-            display: none;
-            /* Hide the tooltip on smaller screens */
+     .tooltip::after {
+       display: none;
     }
+    .tooltip2::after {
+       display: none;
+             
+    }
+    .tooltip3::after {
+     display: none;
+     /* Hide the tooltip on smaller screens */
+   }
 
 }
 
